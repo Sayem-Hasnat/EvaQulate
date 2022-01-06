@@ -1,0 +1,93 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>Add New Question</mat-card-title>
+        <mat-card-subtitle>Quiz {{quizTitle}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container-fluid">
+            <div class="container text-center">
+
+                <h1>Add Question</h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-12 ">
+
+                    <form (ngSubmit)="questionSubmit()">
+
+                        <!-- Question Content -->
+                        <ckeditor [editor]="Editor" [(ngModel)]="question.content" name="content"
+                            data="<p>Question Content Enter Here . . . . . .</p>"></ckeditor><br>
+
+
+                        <!-- Question Options 1 & 2 -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Option 1</mat-label>
+                                    <input type="text" matInput placeholder="Enter Your Option"
+                                        [(ngModel)]="question.option1" name="option1">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Option 2</mat-label>
+                                    <input type="text" matInput placeholder="Enter Your Option"
+                                        [(ngModel)]="question.option2" name="option2">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <!-- Question Options 3 & 4 -->
+                        <div class="row">
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Option 3</mat-label>
+                                    <input type="text" matInput placeholder="Enter Your Option"
+                                        [(ngModel)]="question.option3" name="option3">
+                                </mat-form-field>
+                            </div>
+
+                            <div class="col-md-6">
+                                <mat-form-field class="example-full-width">
+                                    <mat-label>Option 4</mat-label>
+                                    <input type="text" matInput placeholder="Enter Your Option"
+                                        [(ngModel)]="question.option4" name="option4">
+                                </mat-form-field>
+                            </div>
+                        </div>
+
+                        <mat-form-field class="example-full-width">
+                            <mat-label>Select Answer</mat-label>
+                            <mat-select [(ngModel)]="question.answer" name="answer">
+                                <mat-option *ngIf="question.option1" [value]="question.option1">{{question.option1}}
+                                </mat-option>
+                                <mat-option *ngIf="question.option2" [value]="question.option2">{{question.option2}}
+                                </mat-option>
+                                <mat-option *ngIf="question.option3" [value]="question.option3">{{question.option3}}
+                                </mat-option>
+                                <mat-option *ngIf="question.option4" [value]="question.option4">{{question.option4}}
+                                </mat-option>
+                            </mat-select>
+                        </mat-form-field>
+
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button>Insert Question</button>
+                        </div>
+
+                    </form>
+
+                    <br>
+                </div>
+            </div>
+
+        </div>
+    </mat-card-content>
+
+
+</mat-card>

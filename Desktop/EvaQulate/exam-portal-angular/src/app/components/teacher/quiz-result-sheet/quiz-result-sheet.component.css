@@ -1,0 +1,8 @@
+.example-header-image {
+    background-image: url('src\assets\participant.png');
+    background-size: cover;
+  }
+  .responsive {
+    max-width: 40%;
+    height: auto;
+  }

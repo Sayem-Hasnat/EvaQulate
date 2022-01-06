@@ -1,0 +1,6 @@
+.responsive {
+    max-width: 10%;
+    max-height: 10%;
+    border: 2px solid aqua;
+    border-radius: 50%;
+  }

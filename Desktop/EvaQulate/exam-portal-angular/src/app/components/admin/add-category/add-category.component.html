@@ -1,0 +1,45 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>Add New Category</mat-card-title>
+        <mat-card-subtitle>Please Provide Information</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container text-center">
+            <div class="container text-center">
+
+                <h1>Category Form</h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-8 offset-md-2">
+
+                    <form (ngSubmit)="categorySubmit()">
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Title</mat-label>
+                            <input matInput placeholder="Ex. Programming" [(ngModel)]="category.title" name="title">
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width" appearance="fill">
+                            <mat-label>Description</mat-label>
+                            <textarea matInput #description maxlength="130" rows="5" [(ngModel)]="category.description"
+                                name="description" placeholder="Ex. Tell Something About Your Category"></textarea>
+                            <mat-hint align="start"><strong>Description Must be between 130</strong> </mat-hint>
+                            <mat-hint align="end">{{description.value.length}} / 130</mat-hint>
+                        </mat-form-field><br><br>
+
+                        <button type="submit" mat-raised-button>Add Category</button>
+
+                    </form>
+
+                    <br>
+                </div>
+            </div>
+
+        </div>
+    </mat-card-content>
+
+
+</mat-card>

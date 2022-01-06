@@ -1,0 +1,39 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-12">
+           
+            <mat-card>
+                <mat-card-header>
+                    <div mat-card-avatar class="example-header-image"></div>
+                    <mat-card-title>{{quiz.title}}</mat-card-title>
+                    <mat-card-subtitle>{{quiz.categoryDto.title}}</mat-card-subtitle>
+                </mat-card-header>
+                <h1>Read Instructions Properly For The Exam</h1>
+                <mat-divider></mat-divider>
+                <br>
+                <mat-card-content>
+                    <h2>Quiz Description</h2>
+                    <p>{{quiz.description}}</p><br>
+                    <mat-divider></mat-divider><br>
+                    <h2>Important Instructions</h2>
+                    <ul>
+                        <li>You Have to submit Quiz in time</li>
+                        <li>Don't Use Internet To Answer the Questions</li><br>
+
+                        <li>Exam Date: <b>{{quiz.date}}</b></li>
+                        <li>Start Time: <b>{{quiz.startTime}}</b></li>
+                        <li>End Time: <b>{{quiz.endTime}}</b></li><br>
+
+                        <li>Number of Questions: {{quiz.numberOfQuestion}}</li>
+                        <li>Max Marks: {{quiz.maxMarks}}</li>
+
+                    </ul>
+                </mat-card-content>
+                <mat-card-actions class="text-center">
+                    <mat-divider *ngIf="quiz.isEnable"></mat-divider>
+                    <button mat-raised-button color="primary" class="m-2" *ngIf="quiz.isEnable" [routerLink]="['/exam-start/'+quiz.quizId]" routerLinkActive="router-link-active" >Start Exam</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,4 @@
+.example-header-image {
+    background-image: url('src\assets\information.png');
+    background-size: cover;
+  }

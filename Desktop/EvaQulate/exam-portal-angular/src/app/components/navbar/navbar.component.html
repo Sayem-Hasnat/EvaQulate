@@ -1,0 +1,28 @@
+<mat-toolbar color="primary">
+
+    <button mat-icon-button class="material-icons-round">
+        <mat-icon>auto_stories</mat-icon>
+    </button>
+    <span>EvaQulate</span>
+    <button mat-icon-button class="material-icons-outlined">
+        <mat-icon>fact_check</mat-icon>
+    </button>
+
+
+    <span class="example-spacer"></span>
+    <button *ngIf="!isLogin" mat-icon-button class="example-icon favorite-icon" matTooltip="Login"
+        [matTooltipPosition]="position.value" routerLink="/login">
+        <mat-icon>login</mat-icon>
+    </button>
+
+    <button *ngIf="isLogin && user" mat-button [routerLink]="customLink(user)" routerLinkActive="router-link-active" >
+        <mat-icon aria-hidden="false" aria-label="Example home icon">account_box</mat-icon>
+        {{user.username}}
+    </button>
+
+    <button *ngIf="isLogin" mat-icon-button class="example-icon favorite-icon" matTooltip="Logout"
+        [matTooltipPosition]="position.value" (click)="logout()">
+        <mat-icon>logout</mat-icon>
+    </button>
+
+</mat-toolbar>

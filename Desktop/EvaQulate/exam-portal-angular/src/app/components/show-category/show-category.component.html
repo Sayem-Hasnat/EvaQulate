@@ -1,0 +1,30 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>Displaying</mat-card-title>
+        <mat-card-subtitle>All Categories</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+
+        <mat-list>
+            <mat-list-item *ngFor="let category of categories">
+                <mat-divider></mat-divider>
+                <mat-icon mat-list-icon>category</mat-icon>
+                <div mat-line>{{category.title}}</div>
+                <div mat-line> {{category.description}} </div>
+            </mat-list-item>
+
+        </mat-list>
+    </mat-card-content>
+
+    <mat-card-actions>
+        <div class="container text-center">
+
+            <button *ngIf="userRole=='ADMIN'" mat-raised-button routerLink="/admin/category">
+                Create New Category</button>
+
+        </div><br>
+    </mat-card-actions>
+
+</mat-card>

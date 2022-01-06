@@ -1,0 +1,70 @@
+<!-- Searching by code -->
+
+<br>
+
+<div class="container-fluid" *ngFor="let quiz of quizzes">
+    <mat-card>
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>{{quiz.title}}</mat-card-title>
+            <mat-card-subtitle>{{quiz.categoryDto.title}}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content>
+            <p>
+                {{quiz.description}}
+            </p>
+        </mat-card-content>
+
+        <mat-card-actions>
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-md-7">
+                        <button mat-raised-button
+                            [routerLink]="'/teacher/quiz-questions/'+quiz.quizId+'/'+quiz.title">Question</button>
+                        <button mat-button color="primary"
+                            [routerLink]="'/teacher/quiz-result-sheet/'+quiz.quizId+'/'+quiz.title">Result</button>
+                        <button mat-button color="primary">Marks: {{quiz.maxMarks}}</button>
+                        <button mat-button color="primary">Questions: {{quiz.numberOfQuestion}}</button>
+
+                    </div>
+
+
+                    <div class="col-md-5 text-center">
+
+                        <mat-slide-toggle class="p-2" [(ngModel)]="quiz.isEnable"
+                            (change)="updateQuizVisibility(quiz.quizId)">Enable</mat-slide-toggle>
+
+                        <mat-slide-toggle [(ngModel)]="quiz.isPublic" (change)="updateQuizType(quiz.quizId)">
+                            Public
+                        </mat-slide-toggle>
+
+                        <button *ngIf="!quiz.date" mat-button color="primary" matTooltip="Set Quiz Time & Date"
+                            (click)="setQuizSchedule(quiz.quizId)">
+                            <mat-icon>more_time</mat-icon>
+                        </button>
+
+                        <button *ngIf="quiz.date" mat-button color="primary" matTooltip="Quiz Time & Date"
+                            (click)="showQuizSchedule(quiz.quizId)">
+                            <mat-icon>alarm_on</mat-icon>
+                        </button>
+
+                        <button mat-button color="primary" matTooltip='Click To Copy Quiz Code : {{quiz.code}}'
+                            [cdkCopyToClipboard]="quiz.code" (click)="codeCopyNotification()">
+                            <mat-icon>info</mat-icon>
+                        </button>
+
+                        <button mat-button color="primary" matTooltip="Delete Quiz" (click)="deleteQuiz(quiz.quizId)">
+                            <mat-icon>delete</mat-icon>
+                        </button>
+                    </div>
+
+                </div>
+
+            </div>
+        </mat-card-actions>
+    </mat-card>
+
+    <br>
+
+</div>

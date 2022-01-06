@@ -1,0 +1,8 @@
+.example-full-width {
+    width: 100%;
+  }
+
+  .example-header-image {
+    background-image: url('src\assets\test.png');
+    background-size: cover;
+  }

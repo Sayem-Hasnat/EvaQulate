@@ -1,0 +1,54 @@
+<div class="container">
+  <div class="row text-center">
+
+    <mat-card>
+      <div class="col-md-6 offset-md-3">
+        <img class="responsive" src="../../../assets/registration logo.png" alt="Registration Here">
+        <h1>Registration</h1>
+
+        <form (ngSubmit)="userDataSubmit()">
+          <mat-form-field class="example-full-width">
+            <mat-label>First Name</mat-label>
+            <input type="text" matInput placeholder="Ex. Mohammad" [(ngModel)]="data.firstName" name="firstName">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Last Name</mat-label>
+            <input type="text" matInput placeholder="Ex. Tajbir" [(ngModel)]="data.lastName" name="lastName">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Username</mat-label>
+            <input type="text" matInput placeholder="Ex. tajbirnuva" [(ngModel)]="data.username" name="username">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Password</mat-label>
+            <input type="password" matInput placeholder="Enter Here . . ." [(ngModel)]="data.password" name="password">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Email</mat-label>
+            <input type="email" matInput placeholder="Ex. tajbirnuva@gmail.com" [(ngModel)]="data.email" name="email">
+          </mat-form-field>
+
+          <mat-form-field class="example-full-width">
+            <mat-label>Mobile No.</mat-label>
+            <input type="text" matInput placeholder="Ex. 01681650106" [(ngModel)]="data.mobile" name="mobile">
+          </mat-form-field>
+
+          <mat-list>
+            <button type="reset" mat-stroked-button color="accent">Clear Full Registration Form</button>
+            <br><br>
+            <mat-divider></mat-divider>
+            <br>
+            <button type="submit" mat-raised-button color="primary">Register</button>
+          </mat-list>
+
+        </form>
+
+      </div>
+    </mat-card>
+
+  </div>
+</div>

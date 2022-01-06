@@ -1,0 +1,67 @@
+<div *ngIf="resultListLength>0" class="container-fluid">
+
+    <mat-card>
+
+        <mat-card-header>
+            <div mat-card-avatar class="example-header-image"></div>
+            <mat-card-title>Quiz Participants Results</mat-card-title>
+            <mat-card-subtitle>{{ quizTitle }}</mat-card-subtitle>
+        </mat-card-header>
+
+        <mat-card-content><br>
+            <table class="table table-striped text-center">
+                <thead>
+                    <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Participant</th>
+                        <th scope="col">Correct Answer</th>
+                        <th scope="col">Wrong Answer</th>
+                        <th scope="col">Marks</th>
+                        <th scope="col">Percentage</th>
+                        <th scope="col">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let result of resultList; index as i">
+                        <th scope="row">{{ i + 1 }}</th>
+                        <td>{{ result.username }}</td>
+                        <td>{{ result.totalCorrectAnswer }}</td>
+                        <td>{{ result.numberOfQuestion-result.totalCorrectAnswer }}</td>
+                        <td>{{ (result.maxMarks/result.numberOfQuestion) * result.totalCorrectAnswer}}</td>
+                        <td>{{ (result.totalCorrectAnswer/result.numberOfQuestion)*100 }}%</td>
+                        <td>
+                            <button mat-raised-button
+                                [routerLink]="['/teacher/student-exam-result/'+result.submitQuizId]">Answer
+                                Script</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </mat-card-content>
+        <mat-divider></mat-divider>
+
+    </mat-card>
+
+    <div class="row text-center mt-3">
+        <div class="col-md-12">
+            <button mat-raised-button color="primary" (click)="generatePdf()">Generate <mat-icon>picture_as_pdf</mat-icon></button>
+        </div>
+    </div>
+
+
+</div>
+
+<!-- If No One Participate the Exam -->
+<div *ngIf="resultListLength==0" class="container-fluid">
+    <div class="row text-center pt-5">
+        <div class="col-md-3"></div>
+        <div class="col-md-6 pt-5">
+
+            <img class="responsive" src="../../../assets/sorry.png" alt="Submitted">
+
+            <h1><b><i>No One Participate Yet</i></b></h1>
+
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</div>

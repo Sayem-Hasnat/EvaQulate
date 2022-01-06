@@ -1,0 +1,62 @@
+<mat-card>
+
+    <mat-card-header>
+        <mat-card-title>Add Quiz Time And Date</mat-card-title>
+        <mat-card-subtitle>Quiz {{quizTitle}}</mat-card-subtitle>
+    </mat-card-header>
+
+    <mat-card-content>
+        <div class="container-fluid">
+            <div class="container text-center">
+
+                <h1>Time & Date</h1>
+
+            </div>
+
+            <div class="row">
+                <div class="col-md-6 offset-md-3">
+
+                    <form (ngSubmit)="quizScheduleSubmit()">
+
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Choose a date</mat-label>
+                            <input matInput [matDatepicker]="datepicker" [min]="minDate" [(ngModel)]="ProcessDate"
+                                name="ProcessDate" readonly>
+                            <mat-datepicker-toggle matSuffix [for]="datepicker"></mat-datepicker-toggle>
+                            <mat-datepicker touchUi #datepicker></mat-datepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Choose a Start Time</mat-label>
+                            <input matInput [ngxTimepicker]="timepicker1" [(ngModel)]="quizSchedule.startTime"
+                                name="startTime" readonly>
+                            <ngx-material-timepicker-toggle matSuffix [for]="timepicker1">
+                            </ngx-material-timepicker-toggle>
+                            <ngx-material-timepicker #timepicker1></ngx-material-timepicker>
+                        </mat-form-field>
+
+                        <mat-form-field class="example-full-width" appearance="outline">
+                            <mat-label>Choose a End Time</mat-label>
+                            <input matInput [ngxTimepicker]="timepicker2" [(ngModel)]="quizSchedule.endTime"
+                                name="endTime" readonly>
+                            <ngx-material-timepicker-toggle matSuffix [for]="timepicker2">
+                            </ngx-material-timepicker-toggle>
+                            <ngx-material-timepicker #timepicker2></ngx-material-timepicker>
+                        </mat-form-field>
+
+
+                        <div class="container text-center">
+                            <button type="submit" mat-raised-button>Add Schedule</button>
+                        </div>
+
+                    </form>
+
+                    <br>
+                </div>
+            </div>
+
+        </div>
+    </mat-card-content>
+
+
+</mat-card>
